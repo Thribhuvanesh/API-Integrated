@@ -3,7 +3,8 @@ const searchInput = document.getElementById('search');
 const searchButton = document.getElementById('searchBtn');
 const resultContainer = document.getElementById('result');
 const toggleTheme = document.getElementById('toggleTheme');
-const api_key = "accd6d5b940c9be5a18ac2b75e519844"
+const api_key = "accd6d5b940c9be5a18ac2b75e519844";
+
 // Function to fetch data from API
 async function fetchData(query) {
     try {
