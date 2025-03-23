@@ -10,7 +10,6 @@ async function fetchData(query) {
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${api_key}&units=metric`);
         
-        // Check if the response is OK (status 200)
         if (!response.ok) {
             throw new Error('City not found');
         }
@@ -36,7 +35,7 @@ function displayData(data) {
 
 // Event listener for search
 searchButton.addEventListener('click', () => {
-    const query = searchInput.value.trim(); // Trim to remove extra spaces
+    const query = searchInput.value.trim();
     if (query) {
         fetchData(query);
     } else {
@@ -44,7 +43,26 @@ searchButton.addEventListener('click', () => {
     }
 });
 
-// Dark/Light mode toggle
+// Dark/Light mode toggle with localStorage
 toggleTheme.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
+
+    // Save the theme preference in localStorage
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+        toggleTheme.textContent = 'Light Mode';
+    } else {
+        localStorage.setItem('theme', 'light');
+        toggleTheme.textContent = 'Dark Mode';
+    }
+});
+
+// Check localStorage and apply theme on load
+document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        toggleTheme.textContent = 'Light Mode';
+    } else {
+        toggleTheme.textContent = 'Dark Mode';
+    }
 });
