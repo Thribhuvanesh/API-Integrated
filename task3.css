@@ -21,27 +21,3 @@ input, button {
     margin: 10px;
     padding: 10px;
 }
-
-/* Dark Mode */
-.dark-mode {
-    background-color: #333;
-    color: white;
-}
-
-.dark-mode .container {
-    background: #444;
-    color: white;
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
-}
-
-.dark-mode input, 
-.dark-mode button {
-    background: #666;
-    color: white;
-    border: 1px solid white;
-}
-
-/* Ensure button text is visible */
-.dark-mode button:hover {
-    background: #888;
-}
